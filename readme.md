@@ -6,7 +6,7 @@ Geometry and joints torques of a 3-links system in a gravity field in 2D
 ## Geometry  
 The graphical representation below shows a 3-links kinematic chain.  
 
-![](DOC/3LRob.pdf)
+![](DOC/3LRob.jpg)
 
 With more details, we decide that : 
 * Links are rigid bodies fully defined by :
@@ -14,7 +14,7 @@ With more details, we decide that :
 	* c<sub>i</sub> : location of the centre of mass from the root of the link (percentage) 
 	* m<sub>i</sub> : mass (kilogram)
 	* x<sub>i</sub> y<sub>i</sub> : absolute coordinates of the root of the link (real)  
-	![](DOC/Link.pdf)  
+	![](DOC/Link.jpg)  
 * Link orientation are defined by : 
 	* &theta;<sub>i</sub> : relative to the previous link  
 	NOTE : this is the convention for a *kinematic chain*, where angles 
@@ -33,13 +33,13 @@ To compute the torque for a single link, we define :
 * T<sub>i</sub> : torque due to gravity (newton meter) 
 	* T<sub>i</sub> = D<sub>i</sub> W<sub>i</sub> = g m<sub>i</sub> c<sub>i</sub> cos(&alpha;<sub>i</sub>)  
 
-![](DOC/Torque.pdf)  
+![](DOC/Torque.jpg)  
 
 ### For two links:   
 To compute the torque for two links, we have to take care that the kinematic chain has 
 two axes of rotation, as illustrated in the figure below.   
 
-![](DOC/2linksTorque.pdf)  
+![](DOC/2linksTorque.jpg)  
 
 We define :
 * J<sub>i</sub> : joint (axis of rotation) of link<sub>i</sub>. 
@@ -66,7 +66,7 @@ With these notations, we get :
 
 Lever arms D<sub>Joint,Link</sub> and gravity forces W<sub>Link</sub> are illustrated below. 
 
-![](DOC/Distances2L.pdf)   
+![](DOC/Distances2L.jpg)   
 
 ### For three links:   
 Generalisation from the previous simpler cases gives:
@@ -102,7 +102,7 @@ T<sub>2,23</sub> = g m<sub>2</sub> D<sub>2,2</sub> + g m<sub>3</sub> D<sub>2,3</
 The figure below illustrates such a 3 links system, showing the &alpha;<sub>i</sub> and D<sub>Joint, Link</sub> 
 
 
-![](DOC/Distances3L.pdf)   
+![](DOC/Distances3L.jpg)   
 
 ### For N links:   
 To compute the torque for N links, we generalize the previous by exploiting the 
