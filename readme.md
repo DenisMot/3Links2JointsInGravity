@@ -39,7 +39,7 @@ To compute the torque for a single link, we define :
 To compute the torque for two links, we have to take care that the kinematic chain has 
 two axes of rotation, as illustrated in the figure below.   
 
-![](DOC/2linksTorque.jpg)  
+![](DOC/2linksTorque.jpg)   
 
 We define :
 * J<sub>i</sub> : joint (axis of rotation) of link<sub>i</sub>. 
