@@ -1,0 +1,43 @@
+
+function [theta1, theta2] = Cart2Ang(x, y, L1, L2) 
+// compute the 2 angles of a 2 joints system wiht length L1 and L2 when the
+// end of Link 2 is located at x,y 
+
+// Reference (among others...) 
+// http://web.eecs.umich.edu/~ocj/courses/autorob/autorob_10_ik_closedform.pdf
+
+//// Reacheability check... 
+MaxReachableDistance = L1 + L2; 
+if or(sqrt(x.^2 + y.^2) > MaxReachableDistance) then
+    theta1 = %nan;
+    theta2 = %nan;
+    warning('Trajectory passes at a non reachable position (too far)')
+    return
+end
+MinReachableDistance = abs(L1 - L2); 
+if or(sqrt(x.^2 + y.^2) < MinReachableDistance) then
+    theta1 = %nan;
+    theta2 = %nan;
+    warning('Trajectory passes at a non reachable position (too close)')
+    return
+end
+
+//// Calculation of theta2 (from cosine laws = Al-Kashi theorem)
+// From p 28 and 31 "Planar example" in 
+// http://courses.csail.mit.edu/6.141/spring2011/pub/lectures/Lec14-Manipulation-II.pdf
+theta2 = acos( ( (x.^2 + y.^2) - L1.^2 - L2.^2) ./ (2 * L1 * L2) ); 
+
+//// Calculation of theta1 (from 2 embeded angles : see ref for picture) 
+// From p 32 in  
+// http://web.eecs.umich.edu/~ocj/courses/autorob/autorob_10_ik_closedform.pdf
+
+// blue   = atan( y ./ x ) ;   
+// green  = atan( L2 .* sin (theta2) ./ (L1 + L2 .* cos(theta2)) );
+
+// better continuity with atan2 (same quadrant) 
+blue   = atan( y , x ) ;   
+green  = atan( L2 .* sin (theta2) , (L1 + L2 .* cos(theta2)) );
+theta1 = blue - green ; 
+
+endfunction
+
