@@ -2,6 +2,10 @@
 Geometry and joints torques of a 3-links system in a gravity field in 2D
 
 ## Usage
+* (Clone or) download the repository 
+* On your computer : 
+	* Open and run `main.m` with matlab 
+	* Open and run `scilab/main.sce` with scilab  
 
 ## Geometry  
 The graphical representation below shows a 3-links kinematic chain.  
@@ -274,7 +278,7 @@ Accurate plot of a posture is necessary for visualisation
 
 # Todo
 ## Adding a mass to the endpoint:   
-This can be done by adding a 4th link, following the very same logic.  
+This might be done by adding a 4th link, following the very same logic.  
 This link 4 would have non-zero mass, but zero for other dimensions:  
 L<sub>4</sub> = 0, &alpha;<sub>4</sub> = 0, c<sub>4</sub> = 0 but m<sub>4</sub> is non-zero. 
 
