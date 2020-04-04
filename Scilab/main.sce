@@ -36,6 +36,9 @@ a = [    90,    -70,       0   ]; // angle from horizontal in degrees
 c = [  0.45,   0.45,    0.55   ]; // position of COM in percent
 m = [    20,    1.1,     0.9   ]; // mass in kg
 
+// More human like body
+[L, m, c] = SeatedHuman(); 
+
 P1 = Posture_set(L, a, c, m, x0, y0) ;   // compute the posture
 TrunkAngles = 100:-1:60; 
 ShoulderTorques = zeros(TrunkAngles) + %nan; 
