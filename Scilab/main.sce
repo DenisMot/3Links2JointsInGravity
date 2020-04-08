@@ -6,7 +6,7 @@
 //   - the main constaints occur at the end posture 
 // For a typical movement : 
 //   - the arm and forearm move to the end position
-//   - the trunk reamains still   
+//   - the trunk remains still   
 
 //// clear things  
 close ; clear ; 
@@ -40,6 +40,11 @@ m = [    20,    1.1,     0.9   ]; // mass in kg
 [L, m, c] = SeatedHuman(); 
 
 P1 = Posture_set(L, a, c, m, x0, y0) ;   // compute the posture
+
+SensitivityAnalysis(P1)
+
+return
+
 TrunkAngles = 100:-1:60; 
 ShoulderTorques = zeros(TrunkAngles) + %nan; 
 ShoulderAngles  = zeros(TrunkAngles) + %nan; 
