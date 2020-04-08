@@ -85,8 +85,11 @@ if yEnd - yBeg < 0
 else
     plot(x, yEnd , '^', 'MarkerSize', 10, 'MarkerFaceColor', 'white' , 'Color', LinkColor ) ; 
 end
-// torque value 
-xstring(x, yEnd , msprintf('%10.2f Nm', torque) )
+// torque value (inside the figure limits)
+db = get(gca(), "data_bounds")
+yy = min(yEnd, db(2,2) *.9 ); 
+xstring(x, yy , msprintf('%10.2f Nm', torque) )
+
 
 // xstring strongly differs from matlab text => fixing necessary
 // xstring changes color by the index of the color in the current colormap... 
