@@ -66,7 +66,10 @@ plot(xCom, yCom , 'o', 'MarkerSize', 15, 'MarkerFaceColor', 'white' , 'Color', L
 
 // plot the vertical arrow figuring torque at this link    
 yTorque = yCom + torque .* GravityGain ; 
+
+xCoM = P.LeverArm(i); 
 PlotVerticalArrow(xCom, yCom, yTorque, LinkColor, torque)
+
 
 end
 

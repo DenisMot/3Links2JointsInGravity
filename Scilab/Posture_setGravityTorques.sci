@@ -20,12 +20,14 @@ function P = Posture_setGravityTorques(P)
     for j = 1:NbLinks                                 // for each joint... 	
         T(j) = 0;                                     // init torque at this joint
         for l = j:NbLinks                             // for the distal links...		
-            LA = sum(ShiftLnk(j:l-1)) + ShiftCoM(l);  // lever arm (of each link)
-            Tl = LA .* g .* m(l);                     // torque (of each link)
+            LA(j) = sum(ShiftLnk(j:l-1)) + ShiftCoM(l);  // lever arm (of each link)
+            Tl = LA(j) .* g .* m(l);                     // torque (of each link)
             T(j) = T(j) + Tl;                         // sum torques (of each link)
         end
     end
 
-    P.Torque = T;
+    P.Torque = T';
+    P.LeverArm = LA'; 
+
 
 end
